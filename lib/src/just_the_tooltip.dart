@@ -587,6 +587,7 @@ abstract class JustTheTooltipState<T> extends State<JustTheInterface>
   Future<void> _handlePress() async {
     _pressActivated = true;
     final tooltipCreated = await ensureTooltipVisible();
+    widget.onShow?.call();
 
     if (tooltipCreated && enableFeedback) {
       if (triggerMode == TooltipTriggerMode.longPress && mounted) {
